@@ -32,12 +32,12 @@
             this.ListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@
             this.ListView.TabIndex = 2;
             this.ListView.UseCompatibleStateImageBehavior = false;
             this.ListView.View = System.Windows.Forms.View.Details;
-            this.ListView.SelectedIndexChanged += new System.EventHandler(this.ListView_SelectedIndexChanged);
+            this.ListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListView_KeyDown);
             // 
             // columnHeader1
             // 
@@ -64,7 +64,13 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "METAR";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 320;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "inHg";
+            this.columnHeader3.Width = 40;
             // 
             // buttonRefresh
             // 
@@ -107,11 +113,6 @@
             this.button1.Text = "TOD CALC";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "inHg";
-            this.columnHeader3.Width = 40;
             // 
             // button2
             // 

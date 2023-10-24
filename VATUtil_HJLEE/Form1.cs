@@ -69,11 +69,6 @@ namespace VATUtil_HJLEE
             }
         }
 
-        private void ListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
@@ -88,6 +83,31 @@ namespace VATUtil_HJLEE
         private void button2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://paypal.me/yuukihj");
+        }
+
+        private void ListView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                CopyListBox((System.Windows.Forms.ListView)sender);
+            }
+        }
+        public void CopyListBox(ListView list)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in list.SelectedItems)
+            {
+                ListViewItem l = item as ListViewItem;
+                if (l != null)
+                {
+                    foreach (ListViewItem.ListViewSubItem sub in l.SubItems)
+                    {
+                        sb.Append(sub.Text + "\t");
+                    }
+                }
+                sb.AppendLine();
+            }
+            Clipboard.SetDataObject(sb.ToString().Trim());
         }
     }
 }
